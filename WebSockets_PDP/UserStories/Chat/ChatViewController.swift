@@ -17,8 +17,9 @@ class ChatViewController: UIViewController {
     // MARK: -
 
     var nickname: String!
-    var chatMessages: [ChatMessage] = [ChatMessage(nickname: "Nikita", message: "Hello World"),
-                                       ChatMessage(nickname: "Ivan", message: "Hi, Nikita")]
+    var chatMessages: [ChatMessage] = []
+
+    var socketService = Services.defaultSocketService
 
     // MARK: - Instance Methods
 
@@ -33,11 +34,53 @@ class ChatViewController: UIViewController {
         self.title = nickname
     }
 
+    private func connectToChat() {
+        self.socketService.connectToChat(with: self.nickname)
+    }
+
+    private func startObservingMessages() {
+        self.socketService.observeMessages { [weak self] data in
+            if let nickname = data["nickname"] as? String, let message = data["message"] as? String {
+                self?.chatMessages.append(ChatMessage(nickname: nickname,
+                                                      message: message))
+                self?.tableView.reloadData()
+            } else {
+                print("Couldn't decode chat message")
+            }
+        }
+    }
+
     private func configure(cell: ChatMessageCell, for indexPath: IndexPath) {
         let chatMessage = self.chatMessages[indexPath.row]
 
         cell.author = chatMessage.nickname
         cell.message = chatMessage.message
+    }
+
+    private func send(message: String) {
+        self.socketService.send(message: message, username: self.nickname)
+    }
+
+    // MARK: -
+
+    @IBAction func onAddMessageButtonTouchUpInside(_ sender: Any) {
+        let alertController = UIAlertController(title: "Send Message", message: nil, preferredStyle: .alert)
+
+        alertController.addTextField { textField in
+            textField.placeholder = "Message..."
+        }
+
+        let sendAction = UIAlertAction(title: "Send", style: .default) { action in
+            guard let messageTextField = alertController.textFields?.first, let message = messageTextField.text else {
+                return
+            }
+
+            self.send(message: message)
+        }
+
+        alertController.addAction(sendAction)
+
+        self.present(alertController, animated: true, completion: nil)
     }
 
     // MARK: - UIViewController
@@ -47,6 +90,9 @@ class ChatViewController: UIViewController {
 
         self.configureTableView()
         self.configureInitialState()
+
+        self.connectToChat()
+        self.startObservingMessages()
     }
 }
 

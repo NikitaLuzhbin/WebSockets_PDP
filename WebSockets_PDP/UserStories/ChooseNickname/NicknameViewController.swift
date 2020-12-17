@@ -21,6 +21,10 @@ class NicknameViewController: UIViewController {
 
     @IBOutlet private weak var nicknameTextField: UITextField!
 
+    // MARK: -
+
+    private var socketService = Services.defaultSocketService
+
     // MARK: - Instance Methods
 
     @IBAction private func goButtonTouchUpInside(_ sender: UIButton) {
@@ -32,6 +36,12 @@ class NicknameViewController: UIViewController {
     }
 
     // MARK: - UIViewControler
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.socketService.establishConnection()
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let chatViewController = segue.destination as? ChatViewController, let nickname = sender as? String {

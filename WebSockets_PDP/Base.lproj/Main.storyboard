@@ -113,7 +113,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yNh-7p-2IV"/>
                     </view>
-                    <navigationItem key="navigationItem" title="UserName" id="cGh-ff-08o"/>
+                    <navigationItem key="navigationItem" title="UserName" id="cGh-ff-08o">
+                        <barButtonItem key="rightBarButtonItem" image="plus.bubble" catalog="system" id="DjD-7b-kRU">
+                            <connections>
+                                <action selector="onAddMessageButtonTouchUpInside:" destination="Apk-df-ufy" id="aCD-bJ-Stm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="D0s-vA-WT3" id="Ee4-dy-eFd"/>
                     </connections>
@@ -141,4 +147,8 @@
             <point key="canvasLocation" x="137.68115942028987" y="136.60714285714286"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <resources>
+        <image name="plus.bubble" catalog="system" width="128" height="110"/>
+    </resources>
 </document>

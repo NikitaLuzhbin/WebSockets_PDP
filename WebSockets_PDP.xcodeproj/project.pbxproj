@@ -16,9 +16,13 @@
 		427BAAC3258BED14003CD33D /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427BAAC2258BED14003CD33D /* ChatViewController.swift */; };
 		427BAAC6258BEF8F003CD33D /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427BAAC5258BEF8F003CD33D /* ChatMessageCell.swift */; };
 		427BAAC9258BF108003CD33D /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427BAAC8258BF108003CD33D /* ChatMessage.swift */; };
+		427BAACC258BF4F2003CD33D /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427BAACB258BF4F2003CD33D /* Services.swift */; };
+		427BAACE258BF519003CD33D /* DefaultSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427BAACD258BF519003CD33D /* DefaultSocketService.swift */; };
+		D68580890EA1BCC7A0B20896 /* Pods_WebSockets_PDP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359C103A9CFCB0E77A9ECC06 /* Pods_WebSockets_PDP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		359C103A9CFCB0E77A9ECC06 /* Pods_WebSockets_PDP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebSockets_PDP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		427BAAA6258BEBAF003CD33D /* WebSockets_PDP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebSockets_PDP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		427BAAA9258BEBAF003CD33D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		427BAAAB258BEBAF003CD33D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +34,10 @@
 		427BAAC2258BED14003CD33D /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		427BAAC5258BEF8F003CD33D /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		427BAAC8258BF108003CD33D /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		427BAACB258BF4F2003CD33D /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		427BAACD258BF519003CD33D /* DefaultSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocketService.swift; sourceTree = "<group>"; };
+		702844F193AFADCD64F52D41 /* Pods-WebSockets_PDP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebSockets_PDP.release.xcconfig"; path = "Target Support Files/Pods-WebSockets_PDP/Pods-WebSockets_PDP.release.xcconfig"; sourceTree = "<group>"; };
+		C482F903A7BA5AF8F16A28BF /* Pods-WebSockets_PDP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebSockets_PDP.debug.xcconfig"; path = "Target Support Files/Pods-WebSockets_PDP/Pods-WebSockets_PDP.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68580890EA1BCC7A0B20896 /* Pods_WebSockets_PDP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C72B9278D30B9BD6B688081 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				359C103A9CFCB0E77A9ECC06 /* Pods_WebSockets_PDP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		427BAA9D258BEBAF003CD33D = {
 			isa = PBXGroup;
 			children = (
 				427BAAA8258BEBAF003CD33D /* WebSockets_PDP */,
 				427BAAA7258BEBAF003CD33D /* Products */,
+				4C23D4960CF12BAF064E6F70 /* Pods */,
+				3C72B9278D30B9BD6B688081 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				427BAAAF258BEBAF003CD33D /* Main.storyboard */,
+				427BAACA258BF4CA003CD33D /* Services */,
 				427BAABF258BEC5E003CD33D /* UserStories */,
 				427BAAC4258BEF6A003CD33D /* Views */,
 				427BAAC7258BF0F6003CD33D /* Models */,
@@ -116,6 +136,25 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		427BAACA258BF4CA003CD33D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				427BAACB258BF4F2003CD33D /* Services.swift */,
+				427BAACD258BF519003CD33D /* DefaultSocketService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4C23D4960CF12BAF064E6F70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C482F903A7BA5AF8F16A28BF /* Pods-WebSockets_PDP.debug.xcconfig */,
+				702844F193AFADCD64F52D41 /* Pods-WebSockets_PDP.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 427BAABA258BEBB2003CD33D /* Build configuration list for PBXNativeTarget "WebSockets_PDP" */;
 			buildPhases = (
+				07A26CE75ED40FD7FCF8D858 /* [CP] Check Pods Manifest.lock */,
 				427BAAA2258BEBAF003CD33D /* Sources */,
 				427BAAA3258BEBAF003CD33D /* Frameworks */,
 				427BAAA4258BEBAF003CD33D /* Resources */,
+				82A04D05D95B1D22591FE23D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -182,6 +223,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		07A26CE75ED40FD7FCF8D858 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WebSockets_PDP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82A04D05D95B1D22591FE23D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WebSockets_PDP/Pods-WebSockets_PDP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WebSockets_PDP/Pods-WebSockets_PDP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WebSockets_PDP/Pods-WebSockets_PDP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		427BAAA2258BEBAF003CD33D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -190,6 +273,8 @@
 				427BAAAA258BEBAF003CD33D /* AppDelegate.swift in Sources */,
 				427BAAC6258BEF8F003CD33D /* ChatMessageCell.swift in Sources */,
 				427BAABE258BEC58003CD33D /* NicknameViewController.swift in Sources */,
+				427BAACC258BF4F2003CD33D /* Services.swift in Sources */,
+				427BAACE258BF519003CD33D /* DefaultSocketService.swift in Sources */,
 				427BAAC9258BF108003CD33D /* ChatMessage.swift in Sources */,
 				427BAAC3258BED14003CD33D /* ChatViewController.swift in Sources */,
 				427BAAAC258BEBAF003CD33D /* SceneDelegate.swift in Sources */,
@@ -334,6 +419,7 @@
 		};
 		427BAABB258BEBB2003CD33D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C482F903A7BA5AF8F16A28BF /* Pods-WebSockets_PDP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -352,6 +438,7 @@
 		};
 		427BAABC258BEBB2003CD33D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 702844F193AFADCD64F52D41 /* Pods-WebSockets_PDP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
